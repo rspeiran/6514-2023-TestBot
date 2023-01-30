@@ -1,4 +1,3 @@
-
 package frc.robot;
 
 import frc.robot.commands.*;
@@ -7,13 +6,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command.InterruptionBehavior;
 
+import frc.robot.commands.DriveTank;
+
+
 import edu.wpi.first.wpilibj2.command.Command;
 //import edu.wpi.first.wpilibj2.command.InstantCommand;
+//import edu.wpi.first.wpilibj2.command.CommandBase;
+
+
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 //import frc.robot.subsystems.*;
 
 import frc.robot.subsystems.DriveSubSystem;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -44,7 +50,9 @@ public class RobotContainer {
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
-  private RobotContainer() {
+  public RobotContainer() {
+    // The robot's subsystems and commands are defined here...
+    
     // Smartdashboard Subsystems
 
     // SmartDashboard Buttons
@@ -56,9 +64,21 @@ public class RobotContainer {
     SmartDashboard.putData("DriveStraight", new DriveStraight());
 
     // Configure the button bindings
+
+    m_driveSubSystem.setDefaultCommand(
+        new DriveTank(
+          () -> -pS4Controller.getLeftY(), 
+          () -> -pS4Controller.getRightY(), 
+          m_driveSubSystem)
+          );
+
+    
+
+
     configureButtonBindings();
 
     // Configure default commands
+    
     // Configure autonomous sendable chooser
 
 
