@@ -5,10 +5,10 @@ package frc.robot.subsystems;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 //import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
-
 
 /**
  *
@@ -53,4 +53,14 @@ public class DriveSubSystem extends SubsystemBase {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
+    /**
+     * Tank style driving for the Drive  System.
+     *
+     * @param left  Speed in range [-1,1]
+     * @param right Speed in range [-1,1]
+     */
+    public void drive(double left, double right) {
+        differentialDrive.tankDrive(left, right);
+
+    }
 }
