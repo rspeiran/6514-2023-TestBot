@@ -52,5 +52,17 @@ public class ActuatorSubsystem extends SubsystemBase {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void CloseTheHand() {
+        solenoid.set(true);
+        
+    }
+    public void OpenTheand() {
+        solenoid.set(false);
+
+    }
+
+    public void ToggleTheHand() {
+        solenoid.toggle();
+    }
 
 }
