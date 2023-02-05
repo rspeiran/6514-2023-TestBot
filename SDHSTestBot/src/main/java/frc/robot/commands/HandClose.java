@@ -3,7 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 //import java.util.function.DoubleSupplier;
 
-import frc.robot.subsystems.Lights;
+import frc.robot.subsystems.ActuatorSubsystem;
 
 
 /**
@@ -11,14 +11,14 @@ import frc.robot.subsystems.Lights;
  */
 public class HandClose extends CommandBase {
 
-    private final Lights m_lights;
+    private final ActuatorSubsystem m_actuatorSubsystem;
 
 
-    public HandClose(Lights subsystem) {
+    public HandClose(ActuatorSubsystem subsystem) {
 
 
-        m_lights = subsystem;
-        addRequirements(m_lights);
+        m_actuatorSubsystem = subsystem;
+        addRequirements(m_actuatorSubsystem);
 
     }
 

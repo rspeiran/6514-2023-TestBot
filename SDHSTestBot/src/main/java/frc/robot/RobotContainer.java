@@ -59,8 +59,8 @@ public class RobotContainer {
     SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
     SmartDashboard.putData("LightOn", new LightOn(m_lights));
     SmartDashboard.putData("LightOff", new LightOff(m_lights));
-    SmartDashboard.putData("HandOpen", new HandOpen(m_lights));
-    SmartDashboard.putData("HandClose", new HandClose(m_lights));
+    SmartDashboard.putData("HandOpen", new HandOpen(m_actuatorSubsystem));
+    SmartDashboard.putData("HandClose", new HandClose(m_actuatorSubsystem));
     SmartDashboard.putData("DriveStraight", new DriveStraight());
 
     // Configure the button bindings
@@ -109,10 +109,10 @@ public class RobotContainer {
     pS4ButtonCross.onTrue(new LightOff(m_lights).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
     final JoystickButton pS4ButtonCircle = new JoystickButton(pS4Controller, PS4Controller.Button.kCircle.value);
-    pS4ButtonCircle.onTrue(new HandOpen(m_lights).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+    pS4ButtonCircle.onTrue(new HandOpen(m_actuatorSubsystem).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
     final JoystickButton pS4ButtonTriangle = new JoystickButton(pS4Controller, PS4Controller.Button.kTriangle.value);
-    pS4ButtonTriangle.onTrue(new HandClose(m_lights).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+    pS4ButtonTriangle.onTrue(new HandClose(m_actuatorSubsystem).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
 
   }
 
